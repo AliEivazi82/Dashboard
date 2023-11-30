@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>slider</title>
+    <style>
+      * {
+        padding: 0;
+        margin: 0;
+        box-sizing: border-box;
+      }
+      .carousel-container {
+        width: 100%;
+        height: auto;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        gap: 10px;
+        margin-top: 50px;
+      }
+
+      .slider {
+        width: 900px;
+        overflow: auto;
+        display: flex;
+        gap: 10px;
+      }
+
+      .slider::-webkit-scrollbar {
+        display: none;
+      }
+
+      .slide {
+        min-width: 300px;
+        height: 300px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        background-color: aqua;
+        border: 2px solid #000;
+        border-radius: 10px;
+      }
+
+      .prev-button,
+      .next-button {
+        width: 40px;
+        height: 40px;
+        background-color: black;
+        color: white;
+        padding: 7px;
+        border-radius: 8px;
+        border: none;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+      }
+
+      .prev-button:hover,
+      .next-button:hover {
+        background-color: #303030;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="carousel-container">
+      <button class="prev-button">عقب</button>
+      <div class="slider">
+        <div class="slide">1</div>
+        <div class="slide">1</div>
+        <div class="slide">1</div>
+        <div class="slide">1</div>
+        <div class="slide">1</div>
+        <div class="slide">1</div>
+      </div>
+      <button class="next-button">جلو</button>
+    </div>
+
+    <script>
+      const forward = document.querySelector(".next-button");
+      const backward = document.querySelector(".prev-button");
+      const slider = document.querySelector(".slider");
+
+      let scrollAmount = 0;
+      const scrollDistance = 310; // مقداری که به عقب یا جلو می‌رود (عرض هر اسلاید)
+
+      forward.addEventListener("click", () => {
+        scrollAmount += scrollDistance;
+        if (scrollAmount > slider.scrollWidth - slider.clientWidth) {
+          scrollAmount = slider.scrollWidth - slider.clientWidth;
+        }
+        slider.scrollTo({
+          left: scrollAmount,
+          behavior: "smooth", // افزودن انیمیشن اسکرول به ترتیب
+        });
+      });
+
+      backward.addEventListener("click", () => {
+        scrollAmount -= scrollDistance;
+        if (scrollAmount < 0) {
+          scrollAmount = 0;
+        }
+        slider.scrollTo({
+          left: scrollAmount,
+          behavior: "smooth",
+        });
+      });
+
+      function updateButtonVisibility() {
+        const sliderWidth = slider.offsetWidth;
+        const contentWidth = slider.scrollWidth;
+
+        if (contentWidth > sliderWidth) {
+          backward.style.display = "block";
+          forward.style.display = "block";
+        } else {
+          backward.style.display = "none";
+          forward.style.display = "none";
+        }
+      }
+
+      updateButtonVisibility(); // فراخوانی تابع برای اولین بار
+      window.addEventListener("resize", updateButtonVisibility);
+    </script>
+  </body>
+</html>
