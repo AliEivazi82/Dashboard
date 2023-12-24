@@ -8,6 +8,9 @@
   --col-07: #232427;
   --col-08: #35353D;
 
+  --black: #000000;
+  --white: #ffffff;
+
   --deny: #F45050;
   --warn: #F9D949;
   --success: #3CCF4E;
@@ -289,6 +292,7 @@ a {
   width: 100%;
   background-color: var(--col-08);
   border-radius: 15px;
+  display: flex;
 }
 
 .profile_img {
@@ -301,4 +305,27 @@ a {
   border-radius: 50%;
   object-fit: cover;
   box-shadow: 3px 6px 15px var(--col-07);
+}
+
+.profile_desc {
+  padding: 10px;
+  color: var(--white);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: start;
+  gap: 15px;
+  max-width: 300px;
+}
+
+.profile_desc small {
+  color: var(--col-06);
+}
+
+.profile_desc h3 i {
+  color: var(--col-02);
+}
+
+.profile_desc h3 i:hover {
+  color: var(--col-03);
 }
