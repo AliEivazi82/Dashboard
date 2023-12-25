@@ -1,10 +1,10 @@
 :root {
   --col-01: #161B21;
-  --col-02: #F4A950;
+  --col-02: #8e2bff;
   --col-03: #EE4E34;
   --col-04: #FCEDDA;
   --col-05: #212529;
-  --col-06: #F5E974;
+  --col-06: #7900ff;
   --col-07: #232427;
   --col-08: #35353D;
 
@@ -148,7 +148,7 @@ a {
 }
 
 .navbar-top a img {
-  width: 35px;
+  width: 45px;
   border-radius: 50%;
 }
 
@@ -182,6 +182,7 @@ a {
   flex-direction: column;
   justify-content: center;
   align-items: center;
+  color: var(--col-04);
 }
 
 .navbar-links a p {
@@ -190,7 +191,7 @@ a {
 }
 
 .navbar-links a:hover {
-  color: var(--col-03);
+  color: var(--col-05);
 }
 
 .navbar-setting {
@@ -211,10 +212,11 @@ a {
   justify-content: center;
   align-items: center;
   gap: 10px;
+  color: var(--col-05);
 }
 
 .navbar-setting a:hover {
-  color: var(--col-02);
+  color: var(--col-04);
 }
 
 .navbar-toggle {
@@ -225,7 +227,7 @@ a {
 
 .navbar-toggle_btn {
   position: absolute;
-  background-color: var(--warn);
+  background-color: var(--col-02);
   bottom: 0;
   right: 60px;
   width: 40px;
@@ -319,7 +321,7 @@ a {
 }
 
 .profile_desc small {
-  color: var(--col-06);
+  color: var(--col-02);
 }
 
 .profile_desc h3 i {
@@ -327,5 +329,5 @@ a {
 }
 
 .profile_desc h3 i:hover {
-  color: var(--col-03);
+  color: var(--col-06);
 }
