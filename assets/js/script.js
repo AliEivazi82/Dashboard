@@ -7,9 +7,11 @@ for (var i=0;i<tg.length;i++){
     tg[i].addEventListener('click', function(){
         var targetId = this.getAttribute('target')
         var targetAddClass = this.getAttribute('toggle')
+        var selfClassToggle = this.getAttribute('self-toggle')
 
         var targetAction = document.querySelector(targetId)
         targetAction.classList.toggle(targetAddClass)
+        this.classList.toggle(selfClassToggle)
     });
 }
 
